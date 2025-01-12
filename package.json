@@ -1,0 +1,16 @@
+{
+  "name": "flights-booking-app",
+  "version": "1.0.0",
+  "description": "Basic Flight booking app",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/index.js"
+  },
+  "author": "Ritik verma",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "http-status-code": "^2.1.0"
+  }
+}
