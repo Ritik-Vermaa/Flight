@@ -1,8 +1,11 @@
 const exprees = require('express');
-const {port} = require('./config');
-
+const {ServerConfig , Logger} = require('./config');
+const apiRoutes = require('./routes')
 const app = exprees();  
 
-app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
+app.use('/api', apiRoutes);
+
+app.listen(ServerConfig.port, () => {
+    console.log(`Srver is running on port ${ServerConfig.port}`);
+    // Logger.info("Success! Server is running", {});
 });
