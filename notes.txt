@@ -1,0 +1,1 @@
+npx sequelize model:generate --name Airplane --attributes modelNumber:string,capacity:integer
