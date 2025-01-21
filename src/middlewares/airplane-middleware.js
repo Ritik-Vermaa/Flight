@@ -13,6 +13,18 @@ function validateCreateRequest(req, res, next) {
     next();
 }
 
+function validateGetRequest(req, res, next) {
+    if (!req.params.id) {
+        ErrorResponse.message = "Something went wrong while getting the airplane";
+        ErrorResponse.error  = new AppError(['Id not found in incomming Request'], StatusCodes.BAD_REQUEST);
+        return res
+            .status(StatusCodes.BAD_REQUEST)
+            .json(ErrorResponse);
+    }
+    next();
+}
+
 module.exports = {
-    validateCreateRequest
+    validateCreateRequest,
+    validateGetRequest
 }
