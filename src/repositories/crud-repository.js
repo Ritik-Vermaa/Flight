@@ -6,23 +6,17 @@ class CrudRepository {
     }
 
     async create(data) {
-        try {
-            const response = await this.model.create(data);
-            return response;
-        }
-        catch (error) {
-            Logger.error(`Something went wrong in CrudRepository : create ${error.message}`);
-            throw error;
-        }
+        const response = await this.model.create(data);
+        return response;
     }
 
     async destroy(data) {
         try {
             const response = await this.model.destroy({
-            where:{
-                id:data
-            }
-        });
+                where: {
+                    id: data
+                }
+            });
             return response;
         }
         catch (error) {
@@ -53,11 +47,11 @@ class CrudRepository {
         }
     }
 
-    async update(data , id) {
+    async update(data, id) {
         try {
-            const response = await this.model.update(data,{
-                where:{
-                    id:id
+            const response = await this.model.update(data, {
+                where: {
+                    id: id
                 }
             });
             return response;
