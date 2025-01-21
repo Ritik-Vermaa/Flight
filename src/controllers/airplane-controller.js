@@ -65,9 +65,25 @@ async function deleteAirlane(req, res) {
     }
 }
 
+async function updateAirplane(req, res) {
+    try {
+        const airplane = await AirplaneService.updateAirplane(req.body, req.params.id);
+        SucccessResponse.data = airplane;
+        return res
+            .status(StatusCodes.OK)
+            .json(SucccessResponse);
+    } catch (error) {
+        ErrorResponse.error = error;
+        return res
+            .status(error.statusCode)
+            .json(ErrorResponse);
+    }
+}
+
 module.exports = {
     createAirplane,
     getAirplanes,
     getAirplane,
-    deleteAirlane
+    deleteAirlane,
+    updateAirplane
 };
