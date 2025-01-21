@@ -68,6 +68,6 @@ module.exports = {
     createAirplane,
     getAirplanes,
     getAirplane,
-    deleteAirlane,
+    deleteAirplane,
     updateAirplane
 }
