@@ -5,18 +5,7 @@ const AppError = require('../utils/errors/app-error');
 function validateCreateRequest(req, res, next) {
     if (!req.body.modelNumber) {
         ErrorResponse.message = "Something went wrong while creating the airplane";
-        ErrorResponse.error  = new AppError(['Model Number not found in incomming Request'], StatusCodes.BAD_REQUEST);
-        return res
-            .status(StatusCodes.BAD_REQUEST)
-            .json(ErrorResponse);
-    }
-    next();
-}
-
-function validateGetRequest(req, res, next) {
-    if (!req.params.id) {
-        ErrorResponse.message = "Something went wrong while getting the airplane";
-        ErrorResponse.error  = new AppError(['Id not found in incomming Request'], StatusCodes.BAD_REQUEST);
+        ErrorResponse.error = new AppError(['Model Number not found in incomming Request'], StatusCodes.BAD_REQUEST);
         return res
             .status(StatusCodes.BAD_REQUEST)
             .json(ErrorResponse);
@@ -26,5 +15,4 @@ function validateGetRequest(req, res, next) {
 
 module.exports = {
     validateCreateRequest,
-    validateGetRequest
 }

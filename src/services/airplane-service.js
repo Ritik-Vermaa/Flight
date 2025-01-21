@@ -40,8 +40,21 @@ async function getAirplane(id) {
     }
 }
 
+async function deleteAirlane(id) {
+    try {
+        const airplane = await AirplaneRepo.destroy(id);
+        return airplane;
+    } catch(error) {
+        if(error.statusCode == StatusCodes.NOT_FOUND) {
+            throw new AppError('The Airplane you requested to delete is not found', error.statusCode);
+        }
+        throw new AppError('Cannot delete Airplane', StatusCodes.INTERNAL_SERVER_ERROR);
+    }
+}
+
 module.exports = {
     createAirplane,
     getAirplanes,
-    getAirplane
+    getAirplane,
+    deleteAirlane
 }

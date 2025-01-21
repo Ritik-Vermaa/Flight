@@ -50,8 +50,24 @@ async function getAirplane(req, res) {
     }
 }
 
+async function deleteAirlane(req, res) {
+    try {
+        const airplane = await AirplaneService.deleteAirlane(req.params.id);
+        SucccessResponse.data = airplane;
+        return res
+            .status(StatusCodes.OK)
+            .json(SucccessResponse);
+    } catch (error) {
+        ErrorResponse.error = error;
+        return res
+            .status(error.statusCode)
+            .json(ErrorResponse);
+    }
+}
+
 module.exports = {
     createAirplane,
     getAirplanes,
-    getAirplane
+    getAirplane,
+    deleteAirlane
 };
