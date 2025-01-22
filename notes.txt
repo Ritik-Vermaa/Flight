@@ -1,1 +1,5 @@
+cd src
 npx sequelize model:generate --name Airplane --attributes modelNumber:string,capacity:integer
+npx sequelize model:generate --name City --attributes name:string
+
+npx sequelize db:migrate
