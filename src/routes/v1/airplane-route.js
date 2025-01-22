@@ -15,9 +15,13 @@ router.get('/', AirplaneController.getAirplanes);
 router.get('/:id', AirplaneController.getAirplane);
 
 // /api/v1/airplanes/:id DELETE
-router.delete('/:id', AirplaneController.deleteAirlane);
+router.delete('/:id', AirplaneController.deleteAirplane);
+
+// /api/v1/airplanes/:id PATCH
+router.patch('/:id',AirplaneController.updateAirplane);
 
 // /api/v1/airplanes/:id PUT
-router.put('/:id',AirplaneMiddlewares.validateUpdateRequest ,AirplaneController.updateAirplane);
+//update hole object
+router.put('/:id',AirplaneMiddlewares.validateUpdateRequest,AirplaneController.updateAirplane);
 
 module.exports = router;

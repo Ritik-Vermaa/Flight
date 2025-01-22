@@ -50,7 +50,7 @@ async function getAirplane(req, res) {
     }
 }
 
-async function deleteAirlane(req, res) {
+async function deleteAirplane(req, res) {
     try {
         const airplane = await AirplaneService.deleteAirlane(req.params.id);
         SucccessResponse.data = airplane;

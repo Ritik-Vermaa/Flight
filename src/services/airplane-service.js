@@ -40,7 +40,7 @@ async function getAirplane(id) {
     }
 }
 
-async function deleteAirlane(id) {
+async function deleteAirplane(id) {
     try {
         const airplane = await AirplaneRepo.destroy(id);
         return airplane;
